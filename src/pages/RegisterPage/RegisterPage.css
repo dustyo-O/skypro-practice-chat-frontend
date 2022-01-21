@@ -1,0 +1,10 @@
+.RegisterPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
+    height: 100%;
+    min-width: 320px;
+    padding: var(--space-m);
+}

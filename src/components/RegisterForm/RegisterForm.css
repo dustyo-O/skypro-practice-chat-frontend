@@ -1,0 +1,5 @@
+.RegisterForm-Success {
+    padding: var(--space-m);
+
+    text-align: center;
+}
