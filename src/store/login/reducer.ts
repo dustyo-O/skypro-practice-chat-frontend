@@ -1,6 +1,6 @@
 import { ACTION_LOGIN_ERROR, ACTION_LOGIN_INIT, ACTION_LOGIN_START, ACTION_LOGIN_SUCCESS, LoginAction } from './actions';
 
-const INITIAL_STATE = {
+const INITIAL_STATE: LoginState = {
   status: undefined,
   user: undefined,
 };

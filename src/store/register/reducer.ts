@@ -1,8 +1,6 @@
 import { RegisterAction, ACTION_REGISTER_START, ACTION_REGISTER_INIT, ACTION_REGISTER_SUCCESS, ACTION_REGISTER_ERROR } from './actions';
 
-const INITIAL_STATE = {
-
-};
+const INITIAL_STATE = {};
 
 type RegisterStatus = 'progress' | 'success' | 'error';
 

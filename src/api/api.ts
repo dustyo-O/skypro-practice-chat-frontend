@@ -1,7 +1,7 @@
 import { UserLoginPayload } from '../store/login/types';
 import { UserRegisterPayload } from '../store/register/types';
 import { apiRequest } from './request';
-import { BaseApiResponse } from './types';
+import { BaseApiResponse, LoginApiResponse } from './types';
 
 export const Api = {
     registerUser(user: UserRegisterPayload): Promise<BaseApiResponse> {
@@ -10,9 +10,15 @@ export const Api = {
         return apiRequest('/user/register', user);
     },
 
-    loginUser(user: UserLoginPayload): Promise<BaseApiResponse> {
+    loginUser(user: UserLoginPayload): Promise<LoginApiResponse> {
         console.log('loginUser');
 
         return apiRequest('/user/login', user);
+    },
+
+    createChatRoom(token: string): Promise<BaseApiResponse> {
+        console.log('createChatRoom');
+
+        return apiRequest('/chat/create', { token });
     }
 }

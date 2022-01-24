@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Alert, Backdrop, Box, Button, CircularProgress, Grid, Paper, Snackbar, TextField, Typography } from '@mui/material';
 
 import { loginStart, loginInit } from '../../store/login/actions';
-import { loginSelector } from '../../store/login/selectors';
+import { loginDataSelector } from '../../store/login/selectors';
 
 import './LoginForm.css'
 
@@ -15,9 +15,7 @@ const DEFAULT_REGISTER_FORM = {
 
 export const LoginForm: FC = () => {
   const [form, setForm] = useState(DEFAULT_REGISTER_FORM);
-  const loginData = useSelector(loginSelector) || {
-    status: ''
-  };
+  const loginData = useSelector(loginDataSelector);
   const dispatch = useDispatch();
 
   const { status, user } = loginData;
@@ -25,12 +23,6 @@ export const LoginForm: FC = () => {
   const handleRestart = useCallback(() => {
     dispatch(loginStart());
   }, [dispatch]);
-
-  // useEffect(() => {
-  //   if (status === 'error') {
-  //     handleRestart();
-  //   }
-  // }, [handleRestart, status]);
 
   const onFieldChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -81,7 +73,7 @@ export const LoginForm: FC = () => {
         ) : (
           <Paper elevation={3} className='LoginForm-Success'>
             <Typography variant="h6" component="h6">
-              Вы вошли как { user }
+              Вы вошли как { user?.login }
             </Typography>
             <Typography variant="h6" component="h6">
               <Link to="/">На главную</Link>

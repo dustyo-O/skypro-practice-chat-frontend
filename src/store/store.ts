@@ -5,14 +5,22 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { rootSaga } from './sagas';
 import { loginReducer } from './login/reducer';
 import { registerReducer } from './register/reducer';
+import { chatReducer } from './chat/reducer';
 
 const sagaMiddleware = createSagaMiddleware();
 
-const composedEnhancer = compose(applyMiddleware(sagaMiddleware), composeWithDevTools());
+const devTools = composeWithDevTools();
+
+//@ts-ignore
+const composedEnhancer = devTools ? compose(
+  applyMiddleware(sagaMiddleware),
+  composeWithDevTools()
+) : applyMiddleware(sagaMiddleware);
 
 const combinedReducer = combineReducers({
   login: loginReducer,
   register: registerReducer,
+  chat: chatReducer,
 })
 
 // Create a Redux store holding the state of your app.

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Alert, Backdrop, Box, Button, CircularProgress, Grid, Paper, Snackbar, TextField, Typography } from '@mui/material';
 
-import { registerSelector } from '../../store/login/selectors';
+import { registerSelector } from '../../store/register/selectors';
 import { registerStart, registerInit } from '../../store/register/actions';
 
 import './RegisterForm.css'
